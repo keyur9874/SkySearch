@@ -253,9 +253,7 @@ function App() {
                 SkySearch
               </span>
             </div>
-            <p className="text-gray-600 font-medium">
-              &copy; 2025 SkySearch. Built with React and the Sky Scrapper API.
-            </p>
+            <p className="text-gray-600 font-medium">&copy; 2025 SkySearch.</p>
           </div>
         </div>
       </footer>

@@ -12,11 +12,15 @@ interface SearchFormProps {
 }
 
 export function SearchForm({ onSearch, loading }: SearchFormProps) {
-  const [tripType, setTripType] = useState<TripType>(TripType.RoundTrip);
+  const [tripType, setTripType] = useState<TripType>(TripType.OneWay);
   const [origin, setOrigin] = useState("");
   const [destination, setDestination] = useState("");
-  const [departDate, setDepartDate] = useState("");
-  const [returnDate, setReturnDate] = useState("");
+  const [departDate, setDepartDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
+  const [returnDate, setReturnDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
   const [passengers, setPassengers] = useState({
     adults: 1,
     children: 0,
@@ -136,30 +140,6 @@ export function SearchForm({ onSearch, loading }: SearchFormProps) {
               <input
                 type="radio"
                 name="tripType"
-                value={TripType.RoundTrip}
-                checked={tripType === TripType.RoundTrip}
-                onChange={(e) => setTripType(e.target.value as TripType)}
-                className="sr-only"
-              />
-              <div
-                className={`w-5 h-5 rounded-full border-2 transition-all duration-200 ${
-                  tripType === TripType.RoundTrip
-                    ? "border-blue-500 bg-blue-500"
-                    : "border-gray-300 group-hover:border-blue-400"
-                }`}
-              >
-                {tripType === TripType.RoundTrip && (
-                  <div className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                )}
-              </div>
-            </div>
-            <span className="text-gray-700 font-medium">Round trip</span>
-          </label>
-          <label className="flex items-center gap-3 cursor-pointer group">
-            <div className="relative">
-              <input
-                type="radio"
-                name="tripType"
                 value={TripType.OneWay}
                 checked={tripType === TripType.OneWay}
                 onChange={(e) => setTripType(e.target.value as TripType)}
@@ -178,6 +158,30 @@ export function SearchForm({ onSearch, loading }: SearchFormProps) {
               </div>
             </div>
             <span className="text-gray-700 font-medium">One way</span>
+          </label>
+          <label className="flex items-center gap-3 cursor-pointer group">
+            <div className="relative">
+              <input
+                type="radio"
+                name="tripType"
+                value={TripType.RoundTrip}
+                checked={tripType === TripType.RoundTrip}
+                onChange={(e) => setTripType(e.target.value as TripType)}
+                className="sr-only"
+              />
+              <div
+                className={`w-5 h-5 rounded-full border-2 transition-all duration-200 ${
+                  tripType === TripType.RoundTrip
+                    ? "border-blue-500 bg-blue-500"
+                    : "border-gray-300 group-hover:border-blue-400"
+                }`}
+              >
+                {tripType === TripType.RoundTrip && (
+                  <div className="w-2 h-2 bg-white rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                )}
+              </div>
+            </div>
+            <span className="text-gray-700 font-medium">Round trip</span>
           </label>
         </div>
 

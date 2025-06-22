@@ -1,3 +1,4 @@
+import React from 'react';
 import { Filter, X, Plane, Clock, DollarSign } from "lucide-react";
 import { FilterOptions } from "../types/flight";
 
@@ -130,43 +131,6 @@ export function FlightFilters({
       </div>
 
       <div className="space-y-8">
-        <div>
-          <div className="flex items-center gap-2 mb-4">
-            <DollarSign className="h-4 w-4 text-green-500" />
-            <h4 className="font-semibold text-gray-900">Max Price</h4>
-          </div>
-          <div className="px-2">
-            <input
-              type="range"
-              min="100"
-              max="2000"
-              step="50"
-              value={filters.maxPrice || 2000}
-              onChange={(e) =>
-                onFiltersChange({
-                  ...filters,
-                  maxPrice: parseInt(e.target.value),
-                })
-              }
-              className="w-full h-2 bg-gradient-to-r from-green-200 to-green-400 rounded-lg appearance-none cursor-pointer"
-              style={{
-                background: `linear-gradient(to right, #10b981 0%, #10b981 ${
-                  ((filters.maxPrice || 2000) - 100) / 19
-                }%, #e5e7eb ${
-                  ((filters.maxPrice || 2000) - 100) / 19
-                }%, #e5e7eb 100%)`,
-              }}
-            />
-            <div className="flex justify-between text-sm text-gray-500 mt-2">
-              <span>$100</span>
-              <span className="font-bold text-green-600 bg-green-50 px-2 py-1 rounded-lg">
-                ${filters.maxPrice || 2000}
-              </span>
-              <span>$2000+</span>
-            </div>
-          </div>
-        </div>
-
         <div>
           <div className="flex items-center gap-2 mb-4">
             <Plane className="h-4 w-4 text-blue-500" />

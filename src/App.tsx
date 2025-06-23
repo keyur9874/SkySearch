@@ -49,7 +49,7 @@ function App() {
       </div>
 
       <header className="relative bg-white/70 backdrop-blur-xl border-b border-white/30 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               {currentView === "results" && (
